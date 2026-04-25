@@ -23,6 +23,8 @@ import { setRole, setCurrentAccessibleModules } from "../redux/userslice";
 import classes from "../Modules/Dashboard/Dashboard.module.css";
 import avatarImage from "../assets/avatar.png";
 import { setPfNo } from "../redux/pfNoSlice";
+import logger from "../utils/logger";
+import { clearAuthSession, getValidAuthToken } from "../helper/sessionManager";
 
 import { logoutRoute, updateRoleRoute } from "../routes/dashboardRoutes";
 
@@ -36,7 +38,7 @@ function Header({ opened, toggleSidebar }) {
   // const queryclient = useQueryClient();
 
   const handleRoleChange = async (newRole) => {
-    const token = localStorage.getItem("authToken");
+    const token = getValidAuthToken();
     try {
       const response = await axios.patch(
         updateRoleRoute,
@@ -62,16 +64,16 @@ function Header({ opened, toggleSidebar }) {
         ),
         color: "green",
       });
-      console.log(response.data.message);
+      logger.info("Role updated successfully");
       dispatch(setRole(newRole));
       dispatch(setCurrentAccessibleModules());
       navigate('/dashboard')
     } catch (error) {
-      console.error("Error updating last selected role:", error.response.data);
+      logger.error("Failed to update selected role", error);
     }
   };
   const handleLogout = async () => {
-    const token = localStorage.getItem("authToken");
+    const token = getValidAuthToken();
 
     try {
       await axios.post(
@@ -89,12 +91,14 @@ function Header({ opened, toggleSidebar }) {
       if (localStorage.getItem("pfNo") != null) {
         dispatch(setPfNo(null));
       }
-      localStorage.removeItem("authToken");
+      clearAuthSession();
       navigate("/accounts/login");
       // queryclient.invalidateQueries();
-      console.log("User logged out successfully");
+      logger.info("User logged out successfully");
     } catch (err) {
-      console.error("Logout error:", err);
+      logger.error("Logout failed", err);
+      clearAuthSession();
+      navigate("/accounts/login");
     }
   };
 

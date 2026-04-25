@@ -9,6 +9,7 @@ const userSlice = createSlice({
     role: "Guest-User",
     accessibleModules: {}, // Format---> {role: {module: true}}
     currentAccessibleModules: {}, // Format---> {module: true}
+    phcRole: null,
   },
   reducers: {
     setUserName: (state, action) => {
@@ -36,6 +37,9 @@ const userSlice = createSlice({
     clearRoles: (state) => {
       state.roles = null;
     },
+    setPhcRole: (state, action) => {
+      state.phcRole = action.payload;
+    },
   },
 });
 
@@ -48,5 +52,6 @@ export const {
   setCurrentAccessibleModules,
   clearUserName,
   clearRoles,
+  setPhcRole,
 } = userSlice.actions;
 export default userSlice.reducer;

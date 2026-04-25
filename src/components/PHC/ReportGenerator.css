@@ -1,0 +1,226 @@
+/* UC-13: Report Generator Component Styles */
+
+.report-generator {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.report-generator .header-title {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+/* Report Form Styling */
+.report-form {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.report-form:hover {
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+}
+
+/* Report Card Styling */
+.report-card {
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 2px solid transparent;
+}
+
+.report-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.report-card.active {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  border-color: #667eea;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.25);
+}
+
+/* Report Info Card */
+.report-info {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+/* Metric Cards */
+.report-generator .mantine-Paper-root {
+  transition: all 0.3s ease;
+}
+
+.report-generator .mantine-Paper-root:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Table Styling */
+.report-generator table {
+  font-size: 0.875rem;
+}
+
+.report-generator tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.report-generator tbody tr:hover {
+  background-color: rgba(102, 126, 234, 0.05);
+}
+
+/* Button Enhancements */
+.report-generator .mantine-Button-root {
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.report-generator .mantine-Button-root:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Tabs Styling */
+.report-generator .mantine-Tabs-list {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.report-generator .mantine-Tabs-tab {
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+.report-generator .mantine-Tabs-tab[data-active='true'] {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+/* Grid Spacing */
+.report-generator .mantine-Grid-root {
+  gap: 1rem;
+}
+
+/* Badge Styling */
+.report-generator .mantine-Badge-root {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Alert Styling */
+.report-generator .mantine-Alert-root {
+  border-left: 4px solid;
+  backdrop-filter: blur(10px);
+}
+
+.report-generator .mantine-Alert-root[color='red'] {
+  border-left-color: #fa5252;
+  background: rgba(250, 82, 82, 0.1);
+}
+
+.report-generator .mantine-Alert-root[color='green'] {
+  border-left-color: #51cf66;
+  background: rgba(81, 207, 102, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .report-generator {
+    padding: 1rem 0;
+  }
+
+  .report-card {
+    padding: 1rem;
+  }
+
+  .report-form {
+    padding: 1rem;
+  }
+
+  .report-generator .mantine-Grid-root {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .report-generator {
+    padding: 0.5rem 0;
+  }
+
+  .header-title {
+    font-size: 1.5rem !important;
+  }
+
+  .report-generator .mantine-Tabs-list {
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+
+/* Animation Effects */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.report-generator .mantine-Paper-root {
+  animation: slideInUp 0.3s ease-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.report-generator .mantine-Loader-root {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Loading State */
+.report-generator .mantine-Button-root:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Icon Container */
+.report-generator .mantine-ThemeIcon-root {
+  transition: all 0.3s ease;
+}
+
+.report-card:hover .mantine-ThemeIcon-root {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Text Styling */
+.report-generator .mantine-Text-root {
+  transition: color 0.2s ease;
+}
+
+/* Group Styling */
+.report-generator .mantine-Group-root {
+  gap: 0.75rem;
+}
+
+/* Stack Styling */
+.report-generator .mantine-Stack-root {
+  gap: 1rem;
+}

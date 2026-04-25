@@ -1,0 +1,300 @@
+/* UC-07: Manage Doctor Schedule Component Styles */
+
+.schedule-manager {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.schedule-manager .mantine-Text-root:first-child {
+  background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+/* Selection Card */
+.selection-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.selection-card:hover {
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Schedule Editor */
+.schedule-editor {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Day Card */
+.day-card {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.day-card:hover {
+  border-color: #667eea;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.25);
+  transform: translateY(-4px);
+}
+
+.day-card.active {
+  border-color: #667eea;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+}
+
+/* Time Display */
+.time-display {
+  background: rgba(102, 126, 234, 0.05);
+  padding: 0.75rem;
+  border-radius: 6px;
+  border-left: 4px solid #667eea;
+}
+
+.time-display .mantine-Text-root {
+  margin-bottom: 0.5rem;
+}
+
+/* Schedule Summary */
+.schedule-summary {
+  background: rgba(102, 126, 234, 0.05);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.schedule-summary table {
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.schedule-summary tbody tr:hover {
+  background-color: rgba(102, 126, 234, 0.08);
+}
+
+/* Current Schedule */
+.current-schedule {
+  background: linear-gradient(135deg, rgba(81, 207, 102, 0.05), rgba(102, 234, 126, 0.05));
+  border: 1px solid rgba(81, 207, 102, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.current-schedule .slot-card {
+  background: white;
+  border: 1px solid rgba(81, 207, 102, 0.3);
+  transition: all 0.3s ease;
+}
+
+.current-schedule .slot-card:hover {
+  box-shadow: 0 8px 24px rgba(81, 207, 102, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Buttons */
+.schedule-manager .mantine-Button-root {
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.schedule-manager .mantine-Button-root:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Modal Styling */
+.schedule-manager .mantine-Modal-root {
+  backdrop-filter: blur(5px);
+}
+
+.schedule-manager .mantine-Modal-content {
+  background: white;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Alerts */
+.schedule-manager .mantine-Alert-root {
+  border-left: 4px solid;
+  backdrop-filter: blur(10px);
+  animation: slideDown 0.3s ease-out;
+}
+
+.schedule-manager .mantine-Alert-root[color='red'] {
+  border-left-color: #fa5252;
+  background: rgba(250, 82, 82, 0.1);
+}
+
+.schedule-manager .mantine-Alert-root[color='green'] {
+  border-left-color: #51cf66;
+  background: rgba(81, 207, 102, 0.1);
+}
+
+/* Badges */
+.schedule-manager .mantine-Badge-root {
+  transition: all 0.2s ease;
+}
+
+.schedule-manager .mantine-Badge-root[color='blue'] {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Loader Animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.schedule-manager .mantine-Loader-root {
+  animation: spin 2s linear infinite;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .schedule-manager {
+    padding: 1rem 0;
+  }
+
+  .schedule-manager .mantine-Container-root {
+    padding: 1rem;
+  }
+
+  .day-card {
+    padding: 1rem;
+  }
+
+  .schedule-manager .mantine-SimpleGrid-root {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .schedule-manager {
+    padding: 0.5rem 0;
+  }
+
+  .schedule-manager .mantine-Text-root:first-child {
+    font-size: 1.5rem;
+  }
+
+  .day-card {
+    padding: 0.75rem;
+  }
+
+  /* Stack everything vertically */
+  .schedule-manager .mantine-SimpleGrid-root {
+    cols: 1;
+  }
+}
+
+/* Transitions */
+.schedule-manager .mantine-Paper-root {
+  transition: all 0.3s ease;
+}
+
+.schedule-manager .mantine-Card-root {
+  transition: all 0.3s ease;
+}
+
+/* Table Styling */
+.schedule-manager table {
+  font-size: 0.875rem;
+  width: 100%;
+}
+
+.schedule-manager tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.schedule-manager tbody tr:hover {
+  background-color: rgba(102, 126, 234, 0.08);
+}
+
+.schedule-manager thead tr {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.schedule-manager thead th {
+  font-weight: 600;
+  padding: 0.75rem;
+}
+
+/* Icon Styling */
+.schedule-manager .mantine-ThemeIcon-root {
+  transition: all 0.3s ease;
+}
+
+.day-card:hover .mantine-ThemeIcon-root {
+  transform: scale(1.1);
+}
+
+/* Group & Stack */
+.schedule-manager .mantine-Group-root {
+  gap: 0.75rem;
+}
+
+.schedule-manager .mantine-Stack-root {
+  gap: 1rem;
+}
+
+/* Select Input */
+.schedule-manager .mantine-Select-input {
+  background: white;
+  border: 2px solid #e0e0e0;
+  transition: all 0.2s ease;
+}
+
+.schedule-manager .mantine-Select-input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Action Icon */
+.schedule-manager .mantine-ActionIcon-root {
+  transition: all 0.2s ease;
+}
+
+.schedule-manager .mantine-ActionIcon-root:hover {
+  transform: scale(1.1);
+}

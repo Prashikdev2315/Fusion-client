@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { notifications } from "@mantine/notifications";
 import { logoutRoute } from "../routes/dashboardRoutes";
+import logger from "../utils/logger";
+import { clearAuthSession, getValidAuthToken } from "./sessionManager";
 
 function InactivityHandler() {
   const timerRef = useRef(null);
@@ -11,7 +13,7 @@ function InactivityHandler() {
   const INACTIVITY_TIME = 15 * 60 * 1000; // 15 minutes
 
   const handleLogout = async () => {
-    const token = localStorage.getItem("authToken");
+    const token = getValidAuthToken();
 
     try {
       await axios.post(
@@ -24,7 +26,7 @@ function InactivityHandler() {
           },
         },
       );
-      localStorage.removeItem("authToken");
+      clearAuthSession();
 
       // Show notification only once
       if (!hasLoggedOut) {
@@ -38,9 +40,11 @@ function InactivityHandler() {
       }
 
       navigate("/accounts/login");
-      console.log("User logged out successfully");
+      logger.info("User logged out successfully");
     } catch (err) {
-      console.error("Logout error:", err);
+      logger.error("Logout failed", err);
+      clearAuthSession();
+      navigate("/accounts/login");
     }
   };
 

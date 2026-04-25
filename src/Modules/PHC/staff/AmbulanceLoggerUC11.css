@@ -1,0 +1,455 @@
+/**
+ * UC-11: Log Ambulance Usage - CSS Styling
+ * Professional ambulance logging interface styling
+ */
+
+/* ============================================================================
+   Main Container & Layout
+   ============================================================================ */
+
+.ambulance-logger-uc11 {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.ambulance-logger-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+.ambulance-logger-title {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ============================================================================
+   Form Styling
+   ============================================================================ */
+
+.ambulance-form-card {
+  border: 2px solid #f0f0f0;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  padding: 30px;
+}
+
+.ambulance-form-card:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.1);
+}
+
+.ambulance-form-card .mantine-TextInput-input,
+.ambulance-form-card .mantine-Textarea-input,
+.ambulance-form-card .mantine-NumberInput-input {
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  font-size: 14px;
+  padding: 10px 12px;
+  transition: all 0.2s ease;
+}
+
+.ambulance-form-card .mantine-TextInput-input:focus,
+.ambulance-form-card .mantine-Textarea-input:focus,
+.ambulance-form-card .mantine-NumberInput-input:focus {
+  background: white;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.ambulance-form-card .mantine-InputLabel-label {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* ============================================================================
+   Button Styling
+   ============================================================================ */
+
+.ambulance-submit-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  height: 44px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ambulance-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.ambulance-submit-btn:active {
+  transform: translateY(0);
+}
+
+/* ============================================================================
+   Statistics Cards
+   ============================================================================ */
+
+.ambulance-stat-card {
+  background: white;
+  border: 2px solid #f0f0f0;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ambulance-stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.ambulance-stat-card:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.1);
+}
+
+.ambulance-stat-card:hover::before {
+  transform: scaleX(1);
+}
+
+.ambulance-stat-card .mantine-Text-root {
+  margin: 8px 0;
+}
+
+/* ============================================================================
+   Tabs Styling
+   ============================================================================ */
+
+.mantine-Tabs-tab {
+  border-bottom: 3px solid transparent;
+  font-weight: 600;
+  padding: 12px 20px;
+  transition: all 0.2s ease;
+  color: #666;
+}
+
+.mantine-Tabs-tab:hover {
+  color: #667eea;
+  border-bottom-color: #667eea;
+}
+
+.mantine-Tabs-tab[aria-selected="true"] {
+  color: #667eea;
+  border-bottom-color: #667eea;
+}
+
+/* ============================================================================
+   Table Styling
+   ============================================================================ */
+
+.mantine-Table-root {
+  border-collapse: collapse;
+}
+
+.mantine-Table-th {
+  background: #f9f9f9;
+  color: #333;
+  font-weight: 700;
+  padding: 14px;
+  border-color: #e0e0e0;
+  text-align: left;
+}
+
+.mantine-Table-td {
+  padding: 12px 14px;
+  border-color: #f0f0f0;
+}
+
+.mantine-Table-tr:hover {
+  background: #f9f9f9;
+}
+
+.mantine-Table-tr:nth-child(even) {
+  background: white;
+}
+
+/* ============================================================================
+   Badge Styling
+   ============================================================================ */
+
+.mantine-Badge-root {
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================================================
+   Search & Filter Styling
+   ============================================================================ */
+
+.mantine-Group {
+  gap: 12px;
+}
+
+.mantine-Button {
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.mantine-Button:hover {
+  transform: translateY(-1px);
+}
+
+/* ============================================================================
+   Alert Styling
+   ============================================================================ */
+
+.mantine-Alert-root {
+  border-radius: 8px;
+  border-left: 4px solid;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.mantine-Alert-root[data-color="red"] {
+  border-left-color: #fa5252;
+  background:#ffe0e0;
+  color: #c92a2a;
+}
+
+.mantine-Alert-root[data-color="green"] {
+  border-left-color: #51cf66;
+  background: #e7f5ee;
+  color: #2f9e44;
+}
+
+.mantine-Alert-root[data-color="blue"] {
+  border-left-color: #4c6ef5;
+  background: #e7f5ff;
+  color: #1864ab;
+}
+
+/* ============================================================================
+   Modal Styling
+   ============================================================================ */
+
+.mantine-Modal-content {
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.mantine-Modal-header {
+  padding: 24px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.mantine-Modal-title {
+  font-weight: 700;
+  color: #333;
+  font-size: 18px;
+}
+
+/* ============================================================================
+   Action Icons Styling
+   ============================================================================ */
+
+.mantine-ActionIcon-root {
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+}
+
+.mantine-ActionIcon-root:hover {
+  background: #667eea;
+  border-color: #667eea;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* ============================================================================
+   Group Styling
+   ============================================================================ */
+
+.mantine-Group-root {
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ============================================================================
+   Responsive Design
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .ambulance-logger-container {
+    padding: 20px;
+  }
+
+  .ambulance-form-card {
+    padding: 20px;
+  }
+
+  .ambulance-submit-btn {
+    width: 100%;
+    height: 42px;
+    font-size: 14px;
+  }
+
+  .mantine-Table-root {
+    font-size: 12px;
+  }
+
+  .mantine-Table-th,
+  .mantine-Table-td {
+    padding: 8px 10px;
+  }
+
+  .ambulance-stat-card {
+    padding: 16px;
+  }
+
+  .ambulance-stat-card .mantine-Text-root {
+    font-size: 12px;
+  }
+
+  .ambulance-logger-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .mantine-Tabs-tab {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ambulance-logger-uc11 {
+    padding: 12px;
+  }
+
+  .ambulance-logger-container {
+    padding: 16px;
+    border-radius: 8px;
+  }
+
+  .ambulance-form-card {
+    padding: 16px;
+    border-radius: 8px;
+  }
+
+  .ambulance-logger-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .ambulance-stat-card {
+    padding: 12px;
+  }
+
+  .mantine-Group-root {
+    gap: 8px;
+  }
+
+  .mantine-Table-th,
+  .mantine-Table-td {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+
+  .mantine-Button {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}
+
+/* ============================================================================
+   Loading Animation
+   ============================================================================ */
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.mantine-Loader-root {
+  animation: spin 1s linear infinite;
+}
+
+/* ============================================================================
+   Gradient Backgrounds
+   ============================================================================ */
+
+.gradient-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-success {
+  background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+.gradient-danger {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.gradient-warning {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+}
+
+/* ============================================================================
+   Utility Classes
+   ============================================================================ */
+
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: #999;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
+.rounded-lg {
+  border-radius: 12px;
+}
+
+.shadow-lg {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}

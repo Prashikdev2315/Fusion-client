@@ -1,0 +1,338 @@
+/* UC-08: Mark Doctor Attendance Component Styles */
+
+.attendance-manager {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.attendance-manager .mantine-Text-root:first-child {
+  background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+/* Form Card */
+.form-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  animation: slideUp 0.3s ease-out;
+}
+
+.form-card:hover {
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Date Input */
+.date-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.date-input:focus {
+  border-color: #f5576c;
+  box-shadow: 0 0 0 3px rgba(245, 87, 108, 0.1);
+  outline: none;
+}
+
+/* Status Radio */
+.status-radio {
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.status-radio.status-present {
+  background: rgba(81, 207, 102, 0.05);
+  border: 1px solid rgba(81, 207, 102, 0.2);
+}
+
+.status-radio.status-present:hover {
+  background: rgba(81, 207, 102, 0.1);
+}
+
+.status-radio.status-absent {
+  background: rgba(250, 82, 82, 0.05);
+  border: 1px solid rgba(250, 82, 82, 0.2);
+}
+
+.status-radio.status-absent:hover {
+  background: rgba(250, 82, 82, 0.1);
+}
+
+.status-radio.status-leave {
+  background: rgba(255, 159, 64, 0.05);
+  border: 1px solid rgba(255, 159, 64, 0.2);
+}
+
+.status-radio.status-leave:hover {
+  background: rgba(255, 159, 64, 0.1);
+}
+
+.status-radio.status-half_day {
+  background: rgba(51, 160, 230, 0.05);
+  border: 1px solid rgba(51, 160, 230, 0.2);
+}
+
+.status-radio.status-half_day:hover {
+  background: rgba(51, 160, 230, 0.1);
+}
+
+/* Stat Cards */
+.stat-card {
+  background: white;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  animation: slideUp 0.4s ease-out;
+}
+
+.stat-card.present {
+  border-color: rgba(81, 207, 102, 0.3);
+}
+
+.stat-card.present:hover {
+  border-color: #51cf66;
+  box-shadow: 0 8px 24px rgba(81, 207, 102, 0.25);
+}
+
+.stat-card.absent {
+  border-color: rgba(250, 82, 82, 0.3);
+}
+
+.stat-card.absent:hover {
+  border-color: #fa5252;
+  box-shadow: 0 8px 24px rgba(250, 82, 82, 0.25);
+}
+
+.stat-card.leave {
+  border-color: rgba(255, 159, 64, 0.3);
+}
+
+.stat-card.leave:hover {
+  border-color: #ff9f40;
+  box-shadow: 0 8px 24px rgba(255, 159, 64, 0.25);
+}
+
+.stat-card.halfday {
+  border-color: rgba(51, 160, 230, 0.3);
+}
+
+.stat-card.halfday:hover {
+  border-color: #33a0e6;
+  box-shadow: 0 8px 24px rgba(51, 160, 230, 0.25);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Attendance List */
+.attendance-list {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: slideUp 0.3s ease-out;
+}
+
+.attendance-list table {
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.attendance-list tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.attendance-list tbody tr:hover {
+  background-color: rgba(245, 87, 108, 0.05);
+}
+
+/* History Card */
+.history-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: slideUp 0.3s ease-out;
+}
+
+.history-card .mantine-Timeline-root {
+  padding: 1rem 0;
+}
+
+.history-card .mantine-Timeline-item {
+  padding-bottom: 1.5rem;
+}
+
+.history-card .mantine-Timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+/* Badges */
+.attendance-manager .mantine-Badge-root {
+  transition: all 0.2s ease;
+}
+
+.attendance-manager .mantine-Badge-root[color='green'] {
+  background: rgba(81, 207, 102, 0.2);
+  color: #2f9e44;
+}
+
+.attendance-manager .mantine-Badge-root[color='red'] {
+  background: rgba(250, 82, 82, 0.2);
+  color: #c92a2a;
+}
+
+.attendance-manager .mantine-Badge-root[color='yellow'] {
+  background: rgba(255, 159, 64, 0.2);
+  color: #ce5c00;
+}
+
+.attendance-manager .mantine-Badge-root[color='blue'] {
+  background: rgba(51, 160, 230, 0.2);
+  color: #1971c2;
+}
+
+/* Buttons */
+.attendance-manager .mantine-Button-root {
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.attendance-manager .mantine-Button-root:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Alerts */
+.attendance-manager .mantine-Alert-root {
+  border-left: 4px solid;
+  backdrop-filter: blur(10px);
+  animation: slideDown 0.3s ease-out;
+}
+
+.attendance-manager .mantine-Alert-root[color='red'] {
+  border-left-color: #fa5252;
+  background: rgba(250, 82, 82, 0.1);
+}
+
+.attendance-manager .mantine-Alert-root[color='green'] {
+  border-left-color: #51cf66;
+  background: rgba(81, 207, 102, 0.1);
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .attendance-manager {
+    padding: 1rem 0;
+  }
+
+  .attendance-manager .mantine-Container-root {
+    padding: 1rem;
+  }
+
+  .form-card {
+    padding: 1rem;
+  }
+
+  .stat-card {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .attendance-manager {
+    padding: 0.5rem 0;
+  }
+
+  .attendance-manager .mantine-Text-root:first-child {
+    font-size: 1.5rem;
+  }
+
+  .attendance-manager .mantine-Grid-col {
+    margin-bottom: 1rem;
+  }
+
+  .attendance-manager .mantine-SimpleGrid-root {
+    cols: 1;
+  }
+}
+
+/* Select Input */
+.attendance-manager .mantine-Select-input {
+  background: white;
+  border: 2px solid #e0e0e0;
+  transition: all 0.2s ease;
+}
+
+.attendance-manager .mantine-Select-input:focus {
+  border-color: #f5576c;
+  box-shadow: 0 0 0 3px rgba(245, 87, 108, 0.1);
+}
+
+/* Textarea */
+.attendance-manager .mantine-Textarea-input {
+  background: white;
+  border: 2px solid #e0e0e0;
+  transition: all 0.2s ease;
+}
+
+.attendance-manager .mantine-Textarea-input:focus {
+  border-color: #f5576c;
+  box-shadow: 0 0 0 3px rgba(245, 87, 108, 0.1);
+}
+
+/* Icon */
+.attendance-manager .mantine-ThemeIcon-root {
+  transition: all 0.3s ease;
+}
+
+/* Group & Stack */
+.attendance-manager .mantine-Group-root {
+  gap: 0.75rem;
+}
+
+.attendance-manager .mantine-Stack-root {
+  gap: 1rem;
+}
+
+/* Paper */
+.attendance-manager .mantine-Paper-root {
+  transition: all 0.3s ease;
+}

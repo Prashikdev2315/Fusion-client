@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { logoutRoute } from "../routes/dashboardRoutes";
+import logger from "../utils/logger";
 
 const HandleLogout = async () => {
   const navigate = useNavigate();
@@ -20,9 +21,9 @@ const HandleLogout = async () => {
     );
     localStorage.removeItem("authToken");
     navigate("/accounts/login");
-    console.log("User logged out successfully");
+    logger.info("User logged out successfully");
   } catch (err) {
-    console.error("Logout error:", err);
+    logger.error("Logout failed", err);
   }
 };
 

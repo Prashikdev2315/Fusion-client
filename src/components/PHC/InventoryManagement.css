@@ -1,0 +1,312 @@
+/* UC-09: Manage Inventory Component Styles */
+
+.inventory-manager {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.inventory-manager .mantine-Text-root:first-child {
+  background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+/* Statistics Cards */
+.stat-card {
+  background: white;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  animation: slideUp 0.3s ease-out;
+}
+
+.stat-card.total {
+  border-color: rgba(51, 160, 230, 0.3);
+}
+
+.stat-card.total:hover {
+  border-color: #33a0e6;
+  box-shadow: 0 8px 24px rgba(51, 160, 230, 0.25);
+}
+
+.stat-card.units {
+  border-color: rgba(81, 207, 102, 0.3);
+}
+
+.stat-card.units:hover {
+  border-color: #51cf66;
+  box-shadow: 0 8px 24px rgba(81, 207, 102, 0.25);
+}
+
+.stat-card.lowstock {
+  border-color: rgba(250, 82, 82, 0.3);
+}
+
+.stat-card.lowstock:hover {
+  border-color: #fa5252;
+  box-shadow: 0 8px 24px rgba(250, 82, 82, 0.25);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Tabs */
+.inventory-manager .mantine-Tabs-list {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.inventory-manager .mantine-Tabs-tab {
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+.inventory-manager .mantine-Tabs-tab[data-active='true'] {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+/* Table */
+.inventory-manager .mantine-Paper-root table {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.inventory-manager table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.inventory-manager thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.inventory-manager thead th {
+  font-weight: 600;
+  padding: 0.75rem;
+}
+
+.inventory-manager tbody tr {
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.inventory-manager tbody tr:hover {
+  background-color: rgba(102, 126, 234, 0.05);
+}
+
+/* Alert Card */
+.alert-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(250, 82, 82, 0.2);
+  transition: all 0.3s ease;
+}
+
+.alert-card:hover {
+  border-color: #fa5252;
+  box-shadow: 0 8px 24px rgba(250, 82, 82, 0.2);
+}
+
+/* Progress Bar */
+.inventory-manager .mantine-Progress-root {
+  background: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Buttons */
+.inventory-manager .mantine-Button-root {
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.inventory-manager .mantine-Button-root:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Action Icons */
+.inventory-manager .mantine-ActionIcon-root {
+  transition: all 0.2s ease;
+}
+
+.inventory-manager .mantine-ActionIcon-root:hover {
+  transform: scale(1.15);
+}
+
+/* Alerts */
+.inventory-manager .mantine-Alert-root {
+  border-left: 4px solid;
+  backdrop-filter: blur(10px);
+  animation: slideDown 0.3s ease-out;
+}
+
+.inventory-manager .mantine-Alert-root[color='red'] {
+  border-left-color: #fa5252;
+  background: rgba(250, 82, 82, 0.1);
+}
+
+.inventory-manager .mantine-Alert-root[color='green'] {
+  border-left-color: #51cf66;
+  background: rgba(81, 207, 102, 0.1);
+}
+
+/* Modal */
+.inventory-manager .mantine-Modal-root {
+  backdrop-filter: blur(5px);
+}
+
+.inventory-manager .mantine-Modal-content {
+  background: white;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Input Fields */
+.inventory-manager .mantine-Input-input,
+.inventory-manager .mantine-Select-input,
+.inventory-manager .mantine-Textarea-input {
+  background: white;
+  border: 2px solid #e0e0e0;
+  transition: all 0.2s ease;
+}
+
+.inventory-manager .mantine-Input-input:focus,
+.inventory-manager .mantine-Select-input:focus,
+.inventory-manager .mantine-Textarea-input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Badges */
+.inventory-manager .mantine-Badge-root {
+  transition: all 0.2s ease;
+}
+
+.inventory-manager .mantine-Badge-root[color='red'] {
+  background: rgba(250, 82, 82, 0.2);
+  color: #c92a2a;
+}
+
+.inventory-manager .mantine-Badge-root[color='green'] {
+  background: rgba(81, 207, 102, 0.2);
+  color: #2f9e44;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .inventory-manager {
+    padding: 1rem 0;
+  }
+
+  .inventory-manager .mantine-Container-root {
+    padding: 1rem;
+  }
+
+  .inventory-manager .mantine-SimpleGrid-root {
+    cols: 1 !important;
+  }
+
+  .inventory-manager table {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .inventory-manager {
+    padding: 0.5rem 0;
+  }
+
+  .inventory-manager .mantine-Text-root:first-child {
+    font-size: 1.5rem;
+  }
+
+  .inventory-manager thead,
+  .inventory-manager tbody,
+  .inventory-manager th,
+  .inventory-manager td {
+    display: block;
+  }
+
+  .inventory-manager tbody tr {
+    margin-bottom: 1rem;
+  }
+
+  .inventory-manager td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  .inventory-manager td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    text-align: left;
+  }
+}
+
+/* Group & Stack */
+.inventory-manager .mantine-Group-root {
+  gap: 0.75rem;
+}
+
+.inventory-manager .mantine-Stack-root {
+  gap: 1rem;
+}
+
+/* Paper */
+.inventory-manager .mantine-Paper-root {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Icon */
+.inventory-manager .mantine-ThemeIcon-root {
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover .mantine-ThemeIcon-root {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Center */
+.inventory-manager .mantine-Center-root {
+  padding: 2rem;
+}

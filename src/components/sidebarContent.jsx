@@ -84,7 +84,7 @@ function SidebarContent({ isCollapsed, toggleSidebar }) {
       label: "HealthCare Center",
       id: "phc",
       icon: <HealthIcon size={18} />,
-      url: "/",
+      url: "/phc",
     },
     {
       label: "File Tracking",

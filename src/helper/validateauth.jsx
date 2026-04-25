@@ -1,4 +1,4 @@
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -12,25 +12,25 @@ import {
   setCurrentAccessibleModules,
   clearUserName,
   clearRoles,
+  setPhcRole,
 } from "../redux/userslice";
 import { authRoute } from "../routes/globalRoutes";
+import logger from "../utils/logger";
+import { clearAuthSession, getValidAuthToken } from "./sessionManager";
 
 function ValidateAuth() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const hasValidated = useRef(false);
 
   const validateUser = useCallback(async () => {
-    const token = localStorage.getItem("authToken");
+    const token = getValidAuthToken();
 
     if (!token) {
-      console.error("No authentication token found!");
-      localStorage.removeItem("authToken");
-      // notifications.show({
-      //   title: "Authentication Error",
-      //   message: "Token Invalid/Expired! Redirecting to login page.",
-      //   color: "red",
-      // });
-      return navigate("/accounts/login");
+      logger.warn("Authentication token missing");
+      clearAuthSession();
+      navigate("/accounts/login");
+      return;
     }
 
     try {
@@ -44,9 +44,8 @@ function ValidateAuth() {
         accessible_modules = [],
         last_selected_role,
         roll_no,
+        phc_role,
       } = data;
-
-      // console.log("User Data:", data);
 
       dispatch(setUserName(name));
       dispatch(setRollNo(roll_no));
@@ -57,14 +56,10 @@ function ValidateAuth() {
 
       dispatch(setAccessibleModules(accessible_modules));
       dispatch(setCurrentAccessibleModules());
+      dispatch(setPhcRole(phc_role || null));
     } catch (error) {
-      console.error("User validation failed:", error);
-      notifications.show({
-        title: "Session Expired",
-        message: "Your session has expired. Please log in again.",
-        color: "red",
-      });
-      localStorage.removeItem("authToken");
+      logger.error("User validation failed", error);
+      clearAuthSession();
       dispatch(clearUserName());
       dispatch(clearRoles());
       navigate("/accounts/login");
@@ -72,8 +67,12 @@ function ValidateAuth() {
   }, [dispatch, navigate]);
 
   useEffect(() => {
-    validateUser();
-  }, [validateUser]);
+    // Only validate once on component mount
+    if (!hasValidated.current) {
+      hasValidated.current = true;
+      validateUser();
+    }
+  }, []); // Empty dependency array - runs only once
 
   return null;
 }

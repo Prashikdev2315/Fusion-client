@@ -20,6 +20,7 @@ import { notifications } from "@mantine/notifications";
 import { loginRoute } from "../routes/globalRoutes";
 import iiitdmjLogo from "../assets/iiitdmj_logo.png";
 import iiitdmjLogoMobile from "../assets/IIITJ_logo.webp";
+import { getValidAuthToken, setAuthSession } from "../helper/sessionManager";
 
 const CONFIG = {
   MOBILE_BREAKPOINT: 768,
@@ -187,7 +188,7 @@ function LoginPage() {
   }, []);
 
   useEffect(() => {
-    const token = localStorage.getItem("authToken");
+    const token = getValidAuthToken();
     if (token) {
       navigate("/dashboard", { replace: true });
     }
@@ -234,7 +235,7 @@ function LoginPage() {
       });
       
       if (response.status === 200 && response.data?.token) {
-        localStorage.setItem("authToken", response.data.token);
+        setAuthSession(response.data.token);
         
         notifications.show({ 
           message: "Authentication successful", 

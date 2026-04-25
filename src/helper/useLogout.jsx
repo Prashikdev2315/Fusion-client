@@ -3,12 +3,14 @@ import { showNotification } from "@mantine/notifications";
 import axios from "axios";
 import { CheckCircle, XCircle } from "@phosphor-icons/react"; // Optional for adding icons to notifications
 import { logoutRoute } from "../routes/dashboardRoutes";
+import logger from "../utils/logger";
+import { clearAuthSession, getValidAuthToken } from "./sessionManager";
 
 const useLogout = () => {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    const token = localStorage.getItem("authToken");
+    const token = getValidAuthToken();
 
     try {
       await axios.post(
@@ -21,7 +23,7 @@ const useLogout = () => {
           },
         },
       );
-      localStorage.removeItem("authToken");
+      clearAuthSession();
       navigate("/accounts/login");
 
       // Show success notification
@@ -32,9 +34,9 @@ const useLogout = () => {
         icon: <CheckCircle size={18} />,
       });
 
-      console.log("User logged out successfully");
+      logger.info("User logged out successfully");
     } catch (err) {
-      console.error("Logout error:", err);
+      logger.error("Logout failed", err);
 
       // Show error notification
       showNotification({
